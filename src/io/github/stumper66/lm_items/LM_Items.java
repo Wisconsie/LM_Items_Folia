@@ -28,7 +28,7 @@ public class LM_Items extends JavaPlugin implements LM_Items_API {
 
         registerCommands();
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, this::buildApiClasses, 0L);
+        Bukkit.getGlobalRegionScheduler().execute(plugin, this::buildApiClasses);
 
         Utils.logger.info(String.format("LM_Items: start-up complete, took %s ms",
                 (System.currentTimeMillis() - startedTime)));

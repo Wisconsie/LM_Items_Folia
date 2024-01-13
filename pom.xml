@@ -65,7 +65,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>3.6.3</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -79,15 +79,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>3.0.1</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
+
             </plugin>
         </plugins>
         <resources>
@@ -111,8 +103,20 @@
 
     <repositories>
         <repository>
+            <id>sonatype</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
             <id>papermc</id>
             <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>auxilor</id>
+            <url>https://repo.auxilor.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>wolfyscript-public</id>
+            <url>https://maven.wolfyscript.com/repository/public/</url>
         </repository>
         <repository>
             <id>spigotmc-repo</id>
@@ -131,17 +135,19 @@
     <dependencies>
         <dependency>
             <!-- https://www.spigotmc.org/resources/%E2%98%84%EF%B8%8F-oraxen-add-items-blocks-armors-hats-food-furnitures-plants-and-gui-1-18-1-20-4.72448/ -->
-            <groupId>nomaven</groupId>
-            <artifactId>Oraxen</artifactId>
-            <version>1.166.0</version>
-            <scope>provided</scope>
+            <groupId>io.th0rgal</groupId>
+            <artifactId>oraxen</artifactId>
+            <version>1.167.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/oraxen-1.167.0.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/itemedit-1-8-x-1-20-x.40993/ -->
-            <groupId>nomaven</groupId>
-            <artifactId>ItemEdit</artifactId>
-            <version>3.1.5</version>
-            <scope>provided</scope>
+            <groupId>emanondev</groupId>
+            <artifactId>itemedit</artifactId>
+            <version>3.1.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/ItemEdit-3.1.6.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/prorpgitems-most-powerful-custom-items-generator-gems-repair-drops-sets-and-more.99713/ -->
@@ -152,52 +158,57 @@
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/promccore.93608/ -->
-            <groupId>nomaven</groupId>
+            <groupId>com.promcteam</groupId>
             <artifactId>promccore</artifactId>
-            <version>1.0.3.9</version>
+            <version>1.1.1-R1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>nomaven</groupId>
+            <groupId>com.promcteam</groupId>
             <artifactId>prorpgitems</artifactId>
-            <version>1.0.3.16</version>
+            <version>1.0.9-R0.2-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <!-- https://github.com/nulli0n/NexEngine-spigot -->
             <!-- used by ExcellentCrates -->
-            <groupId>nomaven</groupId>
+            <groupId>su.nextmedia.engine</groupId>
             <artifactId>NexEngine</artifactId>
-            <version>2.2.12</version>
-            <scope>provided</scope>
+            <version>2.2.12-R2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/NexEngine.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/excellentcrates-advanced-custom-crates.48732/ -->
-            <groupId>nomaven</groupId>
-            <artifactId>ExcellentCrates</artifactId>
+            <groupId>su.nightexpress.excellentcrates</groupId>
+            <artifactId>ExcellentCratesPlugin</artifactId>
             <version>5.0.0</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/ExcellentCrates-5.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/customcrafting-advanced-custom-recipe-plugin-1-16-1-19-free.55883/ -->
-            <groupId>nomaven</groupId>
+            <groupId>com.wolfyscript.wolfyutilities</groupId>
             <artifactId>CustomCrafting</artifactId>
-            <version>3.16.8.1</version>
-            <scope>provided</scope>
+            <version>4.16.8.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/customcrafting-spigot-4.16.8.5.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.curseforge.com/minecraft/bukkit-plugins/wolfyutilities -->
-            <groupId>nomaven</groupId>
+            <groupId>com.wolfyscript.wolfyutilities</groupId>
             <artifactId>WolfyUtilities</artifactId>
-            <version>4.16.1.0</version>
-            <scope>provided</scope>
+            <version>4.16.15-beta.5</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/wolfyutils-spigot-4.16.15-beta.5.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/magichealth.97199/ -->
-            <groupId>nomaven</groupId>
+            <groupId>net.portalsam.magichealth</groupId>
             <artifactId>MagicHealth</artifactId>
             <version>1.4.5</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/magichealth-1.4.5.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/%E2%9C%A8itemsadder%E2%AD%90emotes-mobs-items-armors-hud-gui-emojis-blocks-wings-hats-liquids.73355/ -->
@@ -208,32 +219,35 @@
         </dependency>
         <dependency>
             <!-- https://polymart.org/resource/custom-items.1 -->
-            <groupId>nomaven</groupId>
+            <groupId>com.jojodmo</groupId>
             <artifactId>CustomItemsAPI</artifactId>
             <version>1.0</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/CustomItemsAPI_PLACEHOLDER.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://github.com/Auxilor/eco -->
-            <groupId>nomaven</groupId>
+            <groupId>com.willfp</groupId>
             <artifactId>eco</artifactId>
-            <version>6.57.2</version>
+            <version>6.53.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/custom-items-free-executable-items.77578/ -->
-            <groupId>nomaven</groupId>
+            <groupId>com.ssomar.executableitems</groupId>
             <artifactId>ExecutableItems</artifactId>
-            <version>5.9.9</version>
-            <scope>provided</scope>
+            <version>6.24.1.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/ExecutableItems-6.24.1.8.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/custom-items-free-executable-items.77578/ -->
             <!-- Used by ExecutableItems -->
-            <groupId>nomaven</groupId>
+            <groupId>com.ssomar.score</groupId>
             <artifactId>SCore</artifactId>
-            <version>3.9.9</version>
-            <scope>provided</scope>
+            <version>4.24.1.8</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/SCore-4.24.1.8.jar</systemPath>
         </dependency>
             <!-- https://www.spigotmc.org/resources/mmoitems-premium.39267/ -->
         <dependency>
@@ -246,17 +260,19 @@
         <dependency>
             <!-- https://www.spigotmc.org/resources/mythiclib.90306/ -->
             <!-- Used by MMOItems -->
-            <groupId>nomaven</groupId>
+            <groupId>io.lumine</groupId>
             <artifactId>MythicLib</artifactId>
-            <version>1.0.19</version>
-            <scope>provided</scope>
+            <version>1.6.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/MythicLib-1.6.1.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://www.spigotmc.org/resources/coins.33382/ -->
-            <groupId>nomaven</groupId>
+            <groupId>me.justeli.coins</groupId>
             <artifactId>Coins</artifactId>
-            <version>1.13</version>
-            <scope>provided</scope>
+            <version>1.13.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/Libs/Coins-1.13.1.jar</systemPath>
         </dependency>
         <dependency>
             <!-- https://github.com/Arcaniax-Development/HeadDatabase-API -->
